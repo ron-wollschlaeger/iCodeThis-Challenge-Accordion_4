@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@400;700&family=Montserrat:wght@700&display=swap');
+
+:root {
+    --bg: hsl(228, 38%, 97%);
+    --accordion__bg: hsl(0, 0%, 100%);
+    --main-color: hsl(225, 49%, 12%);
+    --accent-color: hsl(28, 73%, 60%);
+    --accordion__text: hsl(227, 13%, 40%);
+    --accordion__hr: hsl(227, 13%, 85%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Hind', sans-serif;
+    font-weight: 400;
+    font-size: 100%;
+}
+
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    line-height: 1.5;
+    background-color: var(--bg);
+}
+
+main {
+    background-color: var(--accordion__bg);
+    padding: 4rem 6rem 4rem 6rem;
+    max-width: 30rem;
+    border-radius: 1.5rem;
+}
+
+.accordion__header {
+    margin-bottom: 2.5rem;
+}
+
+.accordion__title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-bottom: .5rem;
+}
+
+.accordion__container li {
+    list-style: none;
+}
+
+.accordion__container li label {
+    display: flex;
+    align-items: cener;
+    cursor: pointer;
+    font-weight: 700;
+    margin-top: 2rem;
+}
+
+label::before {
+    content: '+';
+    height: 24px;
+    width: 24px;
+    padding-left: .475rem;
+    padding-top: .05rem;
+    margin-right: .5rem;
+    border-radius: 1rem;
+    background-color: var(--main-color);
+    color: hsl(0, 0%, 100%);
+    font-size: 1rem;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.accordion__content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .5s;
+    color: var(--accordion__text);
+    margin-left: 2.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: .5rem;
+}
+
+.accordion__container input[type="radio"]:checked + label + .accordion__content {
+    max-height: 300px;
+}
+
+.accordion__container input[type="radio"]:checked + label::before {
+    content: '-';
+    padding-left: .61rem;
+    padding-top: 0;
+}
+
+
+hr {
+    margin-top: 1rem;
+    background-color: var(--accordion__hr);
+    border: none;
+    height: 1px;
+}
+
+h2 {
+    font-weight: 700;
+}
+
+.accordion__content p {
+    margin-bottom: 2rem;
+}
+
+.btn {
+    display: inline-block;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 2rem;
+    color: var(--main-color);
+    background-color: var(--bg);
+    padding: .5rem 1rem .5rem 1rem;
+    margin-bottom: 2rem;
+}
+
+a:hover {
+    cursor: pointer;
+    background-color: var(--accent-color);
+}
